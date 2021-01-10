@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-
+import { Component, Input,Injector} from '@angular/core';
+import {SpotifyService} from './service';
+import {Observable} from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular2';
+  number= 0;
+  kk: Observable<number>;
+constructor(){
+  this.kk = new Observable(subscriber => {
+   setInterval(()=>{
+    subscriber.next(this.number++);
+   },3000)
+  });;
+}
 }

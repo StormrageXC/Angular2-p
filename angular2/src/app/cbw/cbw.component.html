@@ -1,1 +1,6 @@
 <p>cbw works!</p>
+<form #f="ngForm" [formGroup]="form" (ngSubmit)="submit(f)">
+    <input type="text" [formControl]="form.controls['first']" name='first'>
+    <input type="submit">
+</form>
+{{data.No}} {{a}}
